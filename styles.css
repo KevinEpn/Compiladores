@@ -57,3 +57,94 @@ h1{
     transform: rotate(35deg);
 
 }
+
+.tree__triangulo {
+    margin: -15px auto 0;
+    width: 0;
+    height: 0;
+    border-left: 3.3cm solid transparent;
+    border-right: 3.3cm solid transparent;
+    border-bottom: 4cm solid #16850c;   
+}
+
+.tree__triangulo:nth-child(3) {
+    margin-top: -2.3cm;
+    border-left-width: 4cm;
+    border-right-width: 4cm;
+    border-bottom-width: 5cm;
+}
+
+.tree__triangulo:nth-child(4) {
+    margin-top: -2.7cm;
+    border-left-width: 5cm;
+    border-right-width: 5cm;
+    border-bottom-width: 6cm;
+}
+
+.tree__tronco {
+    margin: 0 auto;
+    width: 1.3cm;
+    height: 1.8cm;
+    background: linear-gradient(#8c370f, #5c240e);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.tree {
+    position: absolute;
+    width: 10cm;
+    height: 13cm;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.orbs {
+    position: absolute;
+    width: .7cm;
+    height: .7cm;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3cm rgb(255, 255, 255, 0);
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+}
+
+.orbs:before,
+.orbs::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0px 0px .3cm rgb(255, 255, 255, 0);
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 2.5s;
+}
+
+.orbs--1 {
+    top: 3cm;
+    left:  4.2cm;
+    background: #ed0000;
+    background: radial-gradient(circle, #f09696, #ed0000);
+}
+
+.orbs--1::before {
+    top: 2.4cm;
+    left: 1.5cm;
+    width: .6cm;
+    height: .6cm;
+    background: #ed0000;
+    background: -moz-radial-gradient(circle, #f09696, #ed0000);
+}
+
+.orbs--1::after {
+    top: .7cm;
+    left: 1cm;
+    width: .7cm;
+    height: .7cm;
+    background: #e7c400;
+    background: radial-gradient(circle, #fbeea3, #e7c400);
+}
