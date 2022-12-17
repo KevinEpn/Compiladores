@@ -8,22 +8,141 @@ body{
     background-image: linear-gradient(to right top, #6bd1a5, #71dbcf, #92e3ed, #bce9fc, #e1f0ff, #e5f0ff, #e9f1ff, #ecf1ff, #d6e9ff, #b8e3ff, #91deff, #5fd9fb);
     text-align: center;
     font-size: 200%;
+    /* padding: 2cm; */
 }
 
-/*tittle style*/
+/* MOVIMIENTOS */
+@keyframes move {
+    0% {
+        transform: translate3d(0, 0, 0);
+        color: red;
+    }
+    50% {
+        transform: translate3d(0, -0.2cm, 0);
+        color: red;
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        color: red;
+    }
+}
+
+@-webkit-keyframes shooting_star-fall {
+    0% {
+        top: -10%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+@-webkit-keyframes shooting_star-move {
+    0% {
+        transform: translateX(0px);
+    }
+    
+    100% {
+        transform: translateX(-1400px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0px 0px .3cm rgba(180, 180, 180, 4);
+    }
+    50% {
+        box-shadow: 0px 0px .3cm rgba(255, 255, 255, 8);
+    }
+    100% {
+        box-shadow: 0px 0px .3cm rgba(180, 180, 180, 4);
+    }
+}
+
+/*estilo texto*/
 
 h1{
     font-family: 'Berkshire swash', cursive;
     font-weight: normal;
+    text-align: center;
     color: red;
     padding-top: 4%;
-    text-shadow: 0 0.05cm 0.1cm #FFFF;
-    cursor: default;
+    text-shadow: 0 .05cm .1cm #FFFF;
+    /* cursor: default; */
+    z-index: 1;
+    position: relative;
     animation-name: move;
     animation-iteration-count: infinite;
-    animation-duration: 1.5s;
+    animation-duration: 2.5s;
 }
 
+/* estilo shooting_star */
+
+.shooting_star {
+    position: fixed;
+    top: -10px;
+    right: -10px;
+    z-index: -1;
+    color: rgba(230, 210, 0, 1);
+    text-shadow: 0 0 1px #f000;
+    font-size: 1cm;
+    user-select: none;
+    cursor: default;
+    animation-name: shooting_star-fall, shooting_star-move;
+    animation-duration: 5s, 5s;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+}
+
+.shooting_star:nth-of-type(0) {
+    left: 10%;
+    animation-delay: 0s, 0s;
+}
+
+.shooting_star:nth-of-type(1) {
+    top: -10%;
+    left: 40%;
+    animation-delay: 1s, 1s;
+}
+
+.shooting_star:nth-of-type(2) {
+    top: -10%;
+    left: 70%;
+    animation-delay: 2s, 2s;
+}
+
+.shooting_star:nth-of-type(3) {
+    top: -10%;
+    left: 100%;
+    animation-delay: 3s, 3s;
+}
+
+.shooting_star:nth-of-type(4) {
+    top: -10%;
+    left: 130%;
+    animation-delay: 4s, 4s;
+}
+
+.shooting_star:nth-of-type(5) {
+    top: -10%;
+    left: 150%;
+    animation-delay: 5s, 5s;
+}
+
+.shooting_star:nth-of-type(4) {
+    top: -10%;
+    left: 180%;
+    animation-delay: 6s, 6s;
+}
+
+.shooting_star:nth-of-type(5) {
+    top: -10%;
+    left: 210%;
+    animation-delay: 7s, 7s;
+}
+
+/* estilo estrella */
+ 
 .star {
     position: relative;
     display: inline-block;
@@ -38,8 +157,6 @@ h1{
     font-size: 24px;
 }
 
-
-/*hola*/
 .star:before,
 .star:after {
     content: '';
@@ -59,6 +176,8 @@ h1{
     transform: rotate(35deg);
 
 }
+
+/* estilo arbol */
 
 .tree__triangulo {
     margin: -15px auto 0;
@@ -103,12 +222,14 @@ h1{
     bottom: 0;
 }
 
+/* estilo orbes */
+
 .orbs {
     position: absolute;
     width: .7cm;
     height: .7cm;
     border-radius: 50%;
-    box-shadow: 0px 0px 3cm rgb(255, 255, 255, 0);
+    box-shadow: 0px 0px 1cm rgba(255, 255, 255, 0);
     animation-name: pulse;
     animation-iteration-count: infinite;
     animation-duration: 2.5s;
@@ -120,7 +241,7 @@ h1{
     display: block;
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0px 0px .3cm rgb(255, 255, 255, 0);
+    box-shadow: 0px 0px .3cm rgba(255, 255, 255, 0);
     animation-name: pulse;
     animation-iteration-count: infinite;
     animation-duration: 2.5s;
@@ -128,25 +249,109 @@ h1{
 
 .orbs--1 {
     top: 3cm;
-    left:  4.2cm;
+    left: 4.2cm;
+    background: #a233ff;
+    background: radial-gradient(circle, #fbeea3, #a233ff);
+}
+
+.orbs--1:before {
+    top: 2cm;
+    left: 2.2cm;
+    width: .6cm;
+    height: .6cm;
+    background: #ed0000;
+    background: radial-gradient(circle, #fbeea3, #ed0000);
+}
+
+.orbs--1:after {
+    top: 1.5cm;
+    left: .5cm;
+    width: .7cm;
+    height: .7cm;
+    background: #002afe;
+    background: radial-gradient(circle, #fbeea3, #002afe);
+}
+
+.orbs--2 {
+    top: 4.9cm;
+    left: 2.8cm;
+    background: #e7c400;
+    background: radial-gradient(circle, #fbeea3, #e7c400);
+}
+
+.orbs--2:before {
+    top: 1.4cm;
+    left: 2.7cm;
+    width: .6cm;
+    height: .6cm;
+    background: #fea100;
+    background: radial-gradient(circle, #fbeea3, #fea100);
+}
+
+.orbs--2::after {
+    top: 1.6cm;
+    left: 0.4cm;
+    width: .8cm;
+    height: .8cm;
+    background: #00fe13;
+    background: radial-gradient(circle, #fbeea3, #00fe13);
+}
+
+.orbs--3 {
+    top: 8cm;
+    left: 3.6cm;
+    background: #00feee;
+    background: radial-gradient(circle, #fbeea3, #00feee);
+}
+
+.orbs--3:before {
+    top: 1.4cm;
+    left: 3.5cm;
+    width: .6cm;
+    height: .6cm;
+    background: #8b78b0;
+    background: radial-gradient(circle, #fbeea3, #8b78b0);
+}
+
+.orbs--3:after {
+    top: -0.2cm;
+    left: 1.8cm;
+    width: .8cm;
+    height: .8cm;
+    background: #f04813;
+    background: radial-gradient(circle, #fbeea3, #f04813);
+}
+
+.orbs--4 {
+    top: 9.6cm;
+    left: 4.3cm;
     background: #ed0000;
     background: radial-gradient(circle, #f09696, #ed0000);
 }
 
-.orbs--1::before {
-    top: 2.4cm;
-    left: 1.5cm;
+.orbs--4:before {
+    top: 1cm;
+    left: -2.5cm;
     width: .6cm;
     height: .6cm;
-    background: #ed0000;
-    background: -moz-radial-gradient(circle, #f09696, #ed0000);
+    background: #02f1aa;
+    background: radial-gradient(circle, #fbeea3, #02f1aa);
 }
 
-.orbs--1::after {
-    top: .7cm;
-    left: 1cm;
-    width: .7cm;
-    height: .7cm;
-    background: #e7c400;
-    background: radial-gradient(circle, #fbeea3, #e7c400);
+.orbs--4:after {
+    top: 0.9cm;
+    left: 1.8cm;
+    width: .8cm;
+    height: .8cm;
+    background: #27055f;
+    background: radial-gradient(circle, #fbeea3, #27055f);
+}
+
+/* conf ajuste de pantalla */
+
+@media (max-width: 700px) {
+    .tree {
+        top: initial;
+        bottom: 4%;
+    }
 }
